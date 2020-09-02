@@ -1,0 +1,23 @@
+package kg.geektech.les8.players;
+
+public class Witcher extends Hero{
+    public Witcher(int health, int damage) {
+        super(health, damage, SuperAbility.WITCHER);
+    }
+
+    @Override
+    public void applySuperAbility(Boss boss, Hero[] heroes) {
+        for (int i = 0; i <heroes.length ; i++) {
+
+            if (heroes[i].getHealth() <= 0 && heroes[i] != this){
+                heroes[i].setHealth(140);
+                setHealth(0);
+                System.out.println("Колдун оживил " + heroes[i].getClass().getSimpleName());
+                break;
+
+            }
+
+        }
+
+    }
+}
